@@ -1,0 +1,86 @@
+{
+  "prompt": "Please extract the invoice data from this document into a structured JSON format. Follow these key guidelines: 1. Use the schema structure provided below, keeping all fields even if null or not available. 2. There may be multiple line items, extract them all. 3. Return only the json.",
+  "template": {
+    "invoice": {
+      "invoice_type": "string",
+      "currency": "string",
+      "created_at": "string",
+      "invoice_number": "string",
+      "invoice_date": "string",
+      "due_date": "string",
+      "place_of_supply": "string",
+      "irn": "string",
+      "ack_no": "string",
+      "ack_date": "string",
+      "reverse_charge": "boolean",
+      "customer": {
+        "name": "string",
+        "billing_address": "string",
+        "shipping_address": "string",
+        "gst_number": "string",
+        "pan": "string",
+        "email": "string",
+        "phone": "string"
+      },
+      "vendor": {
+        "name": "string",
+        "address": "string",
+        "gst_number": "string",
+        "pan": "string",
+        "email": "string",
+        "phone": ["string"],
+        "upi_id": "string",
+        "bank_details": {
+          "bank_name": "string",
+          "account_number": "string",
+          "branch": "string",
+          "branch_address": "string",
+          "ifsc": "string",
+          "account_type": "string"
+        }
+      },
+      "line_items": {
+        "summary": {
+          "total_quantity": "number",
+          "total_amount_before_tax": "number",
+          "total_tax_amount": "number",
+          "total_amount_after_tax": "number"
+        },
+        "items": [{
+          "description": "string",
+          "hsn_sac": "string",
+          "quantity": {
+            "value": "number",
+            "unit": "string"
+          },
+          "rate": "number",
+          "discount": {
+            "percentage": "number",
+            "amount": "number"
+          },
+          "amount": "number",
+          "taxes": [{
+            "type": "string",
+            "rate": "number",
+            "amount": "number"
+          }]
+        }]
+      },
+      "amount_details": {
+        "subtotal": "number",
+        "total_tax": "number",
+        "total_discount": "number",
+        "total_amount": "number",
+        "rounded_off_amount": "number",
+        "taxes": [{
+          "type": "string",
+          "rate": "number",
+          "amount": "number"
+        }],
+        "previous_balance": "number",
+        "balance_due": "number",
+        "amount_in_words": "string"
+      }
+    }
+  }
+}

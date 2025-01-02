@@ -1,0 +1,31 @@
+
+tenant:
+  id: "perfect-accounting"
+
+ai:
+  llama:
+    key: "llx-81KSs9POxIEzWhlhimBnN0ohrfssel7yIHryiEKTVe34vcSz"
+  openai:
+    key: ""
+  anthropic:
+    uri: ""
+    version: ""
+    endpoints:
+      text: ""
+    key: ""
+
+redis:
+  host: "10.207.78.163"
+  port: 6379
+
+cloud-tasks:
+  queue: "invoice-processing-queue"
+  location: "asia-south1"
+  project: "perfect-accounting"
+
+storage:
+  bucket: "invoice_pdfs_ms_one"
+
+file:
+  upload_folder: ./resources/uploads/
+  processed_folder: ./resources/processed/

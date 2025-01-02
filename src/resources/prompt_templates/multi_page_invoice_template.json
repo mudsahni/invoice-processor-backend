@@ -1,0 +1,66 @@
+{ "prompt": "Please extract the information from this pdf into json and only return the json. Please try and keep the values in the following json template for whatever fields are available. This pdf has many pages so please check and extract information for the invoice from many pages. If there are more than one invoices then extract them into a json array.",
+  "template": {
+    "invoice": {
+      "invoice_number": "string",
+      "billed_date": "string",
+      "due_date": "string",
+      "place_of_supply": "string",
+      "customer": {
+        "name": "string",
+        "billing_address": "string",
+        "shipping_address": "string",
+        "gst_number": "string"
+      },
+      "vendor": {
+        "name": "string",
+        "address": "string",
+        "gst_number": "string",
+        "pan": "string",
+        "upi_id": "string",
+        "bank_details": {
+          "bank_name": "string",
+          "account_number": "string",
+          "branch": "string",
+          "branch_address": "string",
+          "ifsc": "string"
+        }
+      },
+      "billed_amount": {
+        "sub_total": "number",
+        "taxes": [
+          {
+            "category": "string",
+            "rate": "number",
+            "amount": "number"
+          }
+        ],
+        "previous_dues": "number",
+        "discount":  "number",
+        "total": "number",
+        "balance_due": "number",
+        "amount_in_words": "string"
+      },
+      "line_items": {
+        "total_amount": "number",
+        "items": [
+          {
+            "description": "string",
+            "hsn_sac": "number",
+            "quantity": "number",
+            "per": "string",
+            "rate": "number",
+            "amount": "number",
+            "discount": "number",
+            "taxes": [
+              {
+                "category": "string",
+                "rate": "number",
+                "amount": "number"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
