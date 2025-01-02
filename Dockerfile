@@ -31,7 +31,7 @@ ENV CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 ENV SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
 
 # Expose port
-EXPOSE 5000
+EXPOSE 8080
 
 # Command to run Gunicorn with your app (replace 'app:main' with the correct entry point)
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "main:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "main:app"]
