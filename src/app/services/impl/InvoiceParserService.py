@@ -2,14 +2,13 @@ from typing import IO, Union
 
 from flask import Flask
 from werkzeug.datastructures import FileStorage
-from werkzeug.utils import secure_filename
 
 from ...exceptions.OpenAIException import OpenAIException
 from ...models.entity.PDFTypeFlags import PDFTypeFlags
 from ...constants.Defaults import DEFAULT_CREATED_BY
 from ...db.Firestore import Firestore
 from ...models.dto.response.v1.ParsedInvoiceResponse import ParsedInvoiceResponse
-from src.app.models.entity.templates.ClientDetails import ClientDetails
+from ...models.entity.templates.ClientDetails import ClientDetails
 from ...models.entity.Invoice import Invoice, from_parsed_invoice_response
 from ...models.enum.AIClient import AIClient
 from ...models.enum.ParsingStatus import ParsingStatus
