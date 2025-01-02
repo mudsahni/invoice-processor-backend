@@ -6,13 +6,11 @@ WORKDIR /app
 # Copy .env file
 COPY src/.env .env
 
-# Install system dependencies including SSL certificates
-RUN apt-get update && apt-get install -y \
-    ca-certificates \
-    curl \
-    gcc \
-    python3-dev \
-    && rm -rf /var/lib/apt/lists/*
+# Copy the service account key into the Docker container
+COPY ./secrets/gcp-service-account-key.json src/application_default_credentials.json
+
+# Set the GOOGLE_APPLICATION_CREDENTIALS environment variable to point to the key file
+ENV GOOGLE_APPLICATION_CREDENTIALS="src/application_default_credentials.json"
 
 # Update pip and install certificates
 RUN pip3 install --no-cache-dir --upgrade pip \

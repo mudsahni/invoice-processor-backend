@@ -6,7 +6,7 @@ from typing import Optional, List, Dict, Any
 
 from ...constants.Defaults import DEFAULT_CREATED_BY
 from ...models.dto.response.v1.ParsedInvoiceResponse import ParsedInvoiceResponse
-from src.app.models.entity.templates.ClientDetails import ClientDetails
+from ...models.entity.templates.ClientDetails import ClientDetails
 from ...models.enum.ParsingStatus import ParsingStatus
 from ...models.enum.Tenant import Tenant
 from ...validations.Validation import invoice_validation
