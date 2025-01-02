@@ -3,6 +3,9 @@ FROM python:3.11-slim
 # Set the working directory inside the container
 WORKDIR /app
 
+# Copy .env file
+COPY src/.env .env
+
 # Install system dependencies including SSL certificates
 RUN apt-get update && apt-get install -y \
     ca-certificates \
